@@ -1,4 +1,5 @@
 import useRecipeStore from "../store/recipeStore";
+import axios from "axios";
 
 export default function SearchBar() {
   const setSearchQuery = useRecipeStore((state) => state.setSearchQuery);
