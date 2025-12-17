@@ -12,6 +12,8 @@ export default function SearchBar() {
   const handleSearch = async (e) => {
     e.preventDefault();
 
+    if (!searchQuery.trim()) return;
+
     setLoading(true);
     clearError();
 
