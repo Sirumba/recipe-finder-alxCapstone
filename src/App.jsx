@@ -13,9 +13,10 @@ export default function App() {
     <div>
       <Header />
       <SearchBar />
+
       <main className="p-4">
         {isLoading && <p>Loading recipes...</p>}
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-600">{error}</p>}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
           {recipes.map((recipe) => (
