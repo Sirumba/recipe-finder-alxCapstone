@@ -5,6 +5,17 @@ export default function RecipeDetails() {
 
   if (!recipe) return null;
 
+  const ingredients = [];
+
+  for (let i = 1; i <= 20; i++) {
+    const ingredient = recipe[`strIngredient${i}`];
+    const measure = recipe[`strMeasure${i}`];
+
+    if (ingredient && ingredient.trim()) {
+      ingredients.push(`${measure} ${ingredient}`);
+    }
+  }
+
   return (
     <section className="p-4 border-t mt-6">
       <h2 className="text-2xl font-bold mb-4">{recipe.strMeal}</h2>
