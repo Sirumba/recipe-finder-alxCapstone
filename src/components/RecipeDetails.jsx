@@ -26,6 +26,14 @@ export default function RecipeDetails() {
         className="w-full max-w-md mb-4 rounded"
       />
 
+      <h3 className="mt-4 font-semibold">Ingredients</h3>
+
+      <ul className="list-disc pl-5 mt-2">
+        {ingredients.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+
       <p className="mt-4 text-sm">{recipe.strInstructions}</p>
     </section>
   );
