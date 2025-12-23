@@ -1,8 +1,15 @@
+import useRecipeStore from "../store/recipeStore";
+
 export default function RecipeCard({ recipe }) {
   if (!recipe) return null;
 
+  const setSelectedRecipe = useRecipeStore((state) => state.setSelectedRecipe);
+
   return (
-    <div className="border p-4 rounded-md">
+    <div
+      onClick={() => setSelectedRecipe(recipe)}
+      className="border rounded p-4 cursor-pointer hover:shadow"
+    >
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
