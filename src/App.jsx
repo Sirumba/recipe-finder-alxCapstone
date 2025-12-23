@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
 import useRecipeStore from "./store/recipeStore";
+import RecipeDetails from "./components/RecipeDetails";
 
 export default function App() {
   const recipes = useRecipeStore((state) => state.recipes);
@@ -25,6 +26,7 @@ export default function App() {
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.idMeal} recipe={recipe} />
           ))}
+          <RecipeDetails />
         </div>
       </main>
 
