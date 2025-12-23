@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { searchRecipesByName } from "../api/mealApi";
 
 const useRecipeStore = create((set) => ({
   recipes: [],
@@ -15,6 +16,22 @@ const useRecipeStore = create((set) => ({
   setError: (message) => set({ error: message }),
   clearError: () => set({ error: null }),
   setSearchQuery: (query) => set({ searchQuery: query }),
+
+  // Async action to fetch recipes
+  fetchRecipes: async (query) => {
+    if (!query) return;
+
+    set({ isLoading: true, error: null });
+
+    try {
+      const meals = await searchRecipesByName(query);
+      set({ recipes: meals || [] });
+    } catch (err) {
+      set({ error: "Failed to fetch recipes. Please try again." });
+    } finally {
+      set({ isLoading: false });
+    }
+  },
 }));
 
 export default useRecipeStore;
