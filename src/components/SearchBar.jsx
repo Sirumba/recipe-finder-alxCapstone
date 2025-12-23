@@ -1,40 +1,21 @@
+import { useState } from "react";
 import useRecipeStore from "../store/recipeStore";
-import axios from "axios";
 
 export default function SearchBar() {
-  const setSearchQuery = useRecipeStore((state) => state.setSearchQuery);
-  const searchQuery = useRecipeStore((state) => state.searchQuery);
-  const setRecipes = useRecipeStore((state) => state.setRecipes);
-  const setLoading = useRecipeStore((state) => state.setLoading);
-  const setError = useRecipeStore((state) => state.setError);
-  const clearError = useRecipeStore((state) => state.clearError);
+  const [query, setQuery] = useState("");
+  const fetchRecipes = useRecipeStore((state) => state.fetchRecipes);
 
-  const handleSearch = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!searchQuery.trim()) return;
-
-    setLoading(true);
-    clearError();
-
-    try {
-      const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
-      );
-      setRecipes(response.data.meals || []);
-    } catch (error) {
-      setError("Failed to fetch recipes. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    fetchRecipes(query);
   };
 
   return (
-    <form onSubmit={handleSearch} className="p-4">
+    <form onSubmit={handleSubmit} className="p-4">
       <input
         type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
         placeholder="Search recipes..."
         className="border p-2 w-full"
       />
