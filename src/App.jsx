@@ -17,6 +17,9 @@ export default function App() {
       <main className="p-4">
         {isLoading && <p>Loading recipes...</p>}
         {error && <p className="text-red-600">{error}</p>}
+        {!isLoading && recipes.length === 0 && (
+          <p>No recipes found. Try another search.</p>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
           {recipes.map((recipe) => (
