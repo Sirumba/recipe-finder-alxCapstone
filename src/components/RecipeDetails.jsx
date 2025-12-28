@@ -56,7 +56,7 @@ export default function RecipeDetails() {
         </div>
       )}
       {recipe.strSource && (
-        <p className="mt-4">
+        <p className="mt-4 text-sm">
           Source:{" "}
           <a
             href={recipe.strSource}
