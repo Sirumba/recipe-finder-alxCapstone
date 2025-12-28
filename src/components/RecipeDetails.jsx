@@ -41,6 +41,20 @@ export default function RecipeDetails() {
           </ul>
         </>
       )}
+      {youtubeId && (
+        <div className="mt-6">
+          <h3 className="font-semibold mb-2">Video Tutorial</h3>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${youtubeId}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
       <p className="mt-4 text-sm">{recipe.strInstructions}</p>
     </section>
   );
