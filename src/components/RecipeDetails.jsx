@@ -16,6 +16,12 @@ export default function RecipeDetails() {
     }
   }
 
+  let youtubeId = null;
+  if (recipe.strYoutube) {
+    const url = recipe.strYoutube;
+    youtubeId = url.split("v=")[1];
+  }
+
   return (
     <section className="p-4 border-t mt-6">
       <h2 className="text-2xl font-bold mb-4">{recipe.strMeal}</h2>
