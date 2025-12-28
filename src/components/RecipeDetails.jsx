@@ -55,6 +55,19 @@ export default function RecipeDetails() {
           ></iframe>
         </div>
       )}
+      {recipe.strSource && (
+        <p className="mt-4">
+          Source:{" "}
+          <a
+            href={recipe.strSource}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
+          >
+            View full recipe
+          </a>
+        </p>
+      )}
       <p className="mt-4 text-sm">{recipe.strInstructions}</p>
     </section>
   );
