@@ -15,7 +15,7 @@ export default function App() {
       <Header />
       <SearchBar />
 
-      <main className="p-4">
+      <main className="p-4 max-w-6xl mx-auto">
         {isLoading && <p>Loading recipes...</p>}
         {error && <p className="text-red-600">{error}</p>}
         {!isLoading && recipes.length === 0 && (
