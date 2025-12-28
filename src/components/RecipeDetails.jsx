@@ -23,7 +23,7 @@ export default function RecipeDetails() {
   }
 
   return (
-    <section className="p-4 border-t mt-6">
+    <section className="p-4 border-t mt-8 max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">{recipe.strMeal}</h2>
 
       <img
@@ -68,7 +68,9 @@ export default function RecipeDetails() {
           </a>
         </p>
       )}
-      <p className="mt-4 text-sm">{recipe.strInstructions}</p>
+      <p className="mt-4 text-sm leading-relaxed whitespace-pre-line">
+        {recipe.strInstructions}
+      </p>
     </section>
   );
 }
