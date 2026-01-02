@@ -5,13 +5,13 @@ export default function RecipeDetails() {
   const recipe = useRecipeStore((state) => state.selectedRecipe);
   const detailsRef = useRef(null);
 
-  if (!recipe) return null;
-
   useEffect(() => {
     if (detailsRef.current) {
       detailsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [recipe]);
+
+  if (!recipe) return null;
 
   const ingredients = [];
 
