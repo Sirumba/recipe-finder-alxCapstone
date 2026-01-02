@@ -1,9 +1,17 @@
 import useRecipeStore from "../store/recipeStore";
+import { use, useEffect, useRef } from "react";
 
 export default function RecipeDetails() {
   const recipe = useRecipeStore((state) => state.selectedRecipe);
+  const detailsRef = useRef(null);
 
   if (!recipe) return null;
+
+  useEffect(() => {
+    if (detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [recipe]);
 
   const ingredients = [];
 
@@ -23,7 +31,7 @@ export default function RecipeDetails() {
   }
 
   return (
-    <section className="p-4 border-t mt-8 max-w-3xl mx-auto">
+    <section ref={detailsRef} className="p-4 border-t mt-8 max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">{recipe.strMeal}</h2>
 
       <img
