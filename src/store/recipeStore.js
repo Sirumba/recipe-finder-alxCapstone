@@ -9,9 +9,10 @@ const useRecipeStore = create((set) => ({
   selectedRecipe: null,
   searchQuery: "",
 
-  // Empty functions for now
+  // functions
   setRecipes: (recipes) => set({ recipes }),
   setSelectedRecipe: (recipe) => set({ selectedRecipe: recipe }),
+  clearSelectedRecipe: () => set({ selectedRecipe: null }),
   setLoading: (status) => set({ isLoading: status }),
   setError: (message) => set({ error: message }),
   clearError: () => set({ error: null }),
