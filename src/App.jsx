@@ -26,8 +26,9 @@ export default function App() {
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.idMeal} recipe={recipe} />
           ))}
-          <RecipeDetails />
         </div>
+
+        <RecipeDetails />
       </main>
 
       <Footer />
