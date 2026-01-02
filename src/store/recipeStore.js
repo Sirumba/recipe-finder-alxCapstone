@@ -26,6 +26,7 @@ const useRecipeStore = create((set) => ({
       isLoading: true,
       error: null,
       selectedRecipe: null,
+      searchQuery: query,
     });
 
     try {

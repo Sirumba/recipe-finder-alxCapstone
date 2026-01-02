@@ -9,6 +9,7 @@ export default function App() {
   const recipes = useRecipeStore((state) => state.recipes);
   const isLoading = useRecipeStore((state) => state.isLoading);
   const error = useRecipeStore((state) => state.error);
+  const searchQuery = useRecipeStore((state) => state.searchQuery);
 
   return (
     <div>
@@ -18,7 +19,7 @@ export default function App() {
       <main className="p-4 max-w-6xl mx-auto">
         {isLoading && <p>Loading recipes...</p>}
         {error && <p className="text-red-600">{error}</p>}
-        {!isLoading && recipes.length === 0 && (
+        {!isLoading && recipes.length === 0 && searchQuery && (
           <p>No recipes found. Try another search.</p>
         )}
 
