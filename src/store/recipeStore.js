@@ -22,7 +22,11 @@ const useRecipeStore = create((set) => ({
   fetchRecipes: async (query) => {
     if (!query) return;
 
-    set({ isLoading: true, error: null });
+    set({
+      isLoading: true,
+      error: null,
+      selectedRecipe: null,
+    });
 
     try {
       const meals = await searchRecipesByName(query);
