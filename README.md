@@ -5,13 +5,9 @@ The application allows users to search for recipes by name and view detailed inf
 
 The project focuses on API integration, state management, and building a clean, user-friendly interface with React.
 
----
-
 ## 🚀 Live Demo
 
 👉 https://recipe-finder-alx-capstone.vercel.app
-
----
 
 ## 📌 Features
 
